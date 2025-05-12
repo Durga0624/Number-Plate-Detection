@@ -1,99 +1,75 @@
-# 🚗🔍 Number Plate Detection & 🎤 Emotion Analysis Prototype
+# Number Plate Detection using OCR and EasyOCR
 
 # 📌 Overview
-This project combines Computer Vision and AI to:
+This project implements an image-based number plate detection system using computer vision and OCR (Optical Character Recognition). It identifies and reads vehicle license plates from static images, which can be used in traffic monitoring, toll systems, parking management, law enforcement, and smart cities.
 
-🚘 Detect and read number plates from vehicle images using EasyOCR
+# 🧠 Key Technologies
+OpenCV: For image preprocessing and visualization.
 
-🧠 Prototype an audio-based Emotion Detection system using Whisper AI + SVM
+EasyOCR: For extracting text from number plates.
 
-# 🚘 Part 1: Number Plate Detection
+Google Colab: Used for coding and image processing.
 
-# 🎯 Objective
-📸 Load a vehicle image
+Whisper AI (for extension): Included in the pipeline to demonstrate emotion detection from audio (not directly used for number plates).
 
-🧾 Detect and extract the number plate
+# 🚀 How It Works
+Image Input: Loads images from a dataset folder in Google Drive.
 
-🔤 Read text using OCR
+Preprocessing: Converts images to grayscale, applies filters.
 
-🖼️ Show result with bounding boxes
+Text Detection: EasyOCR identifies text regions.
 
-🛠️ Technologies Used
-🧱 OpenCV
+Text Extraction: Extracts the number plate text.
 
-👁️ EasyOCR
+Output Display: Highlights the plate area and shows detected text.
 
-📊 Matplotlib
+# 📁 Folder Structure
+/Indian_Number_Plates/
+    └── Sample_Images/
+        ├── image1.jpg
+        ├── image2.jpg
+        └── ...
+# 🔧 Installation
+pip install openai-whisper librosa scikit-learn easyocr opencv-python
 
-☁️ Google Colab + Google Drive
-
-✅ Features
-🧠 Smart OCR-based plate reading
-
-🔄 Multi-format support
-
-🎥 Extendable to live video
-
-🖍️ Text and bounding box visualization
-
-# ⚠️ Limitations
-🚫 No real-time processing
-
-🌫️ Struggles with poor lighting or angles
-
-🔠 Limited font/language support
-
-# 🧠 Part 2: Emotion Detection from Audio (Prototype)
-# 🎯 Objective
-🗣️ Transcribe speech with Whisper AI
-
-🎶 Extract MFCC + pitch features
-
-📈 Classify emotions using SVM
-
-🛠️ Technologies Used
-🗣️ openai-whisper
-
-🎧 librosa
-
-🤖 scikit-learn
-
-🎞️ moviepy
-
-# 📁 Dataset
-🎛️ Simulated audio features (MFCC + pitch)
-
-😃 Emotion classes: happy, sad, angry, neutral
-
-# ⚠️ Limitations
-🤖 Fake dataset (not real speech)
-
-🧠 No semantic understanding
-
-❌ Offline only (no live input)
-
-# 🚀 How to Run
-🛠️ Setup
-pip install openai-whisper librosa scikit-learn moviepy easyocr opencv-python
-📂 Mount Google Drive (Colab)
+# 💻 Usage
 from google.colab import drive
-drive.mount('/content/drive')from google.colab import drive
 drive.mount('/content/drive')
-▶️ Run Detection
-📁 Place vehicle images in /content/drive/MyDrive/Indian_Number_Plates/Sample_Images
 
-🧪 Run the script to process and detect plates
+# Load dataset path and run analysis
+dataset_path = '/content/drive/MyDrive/Indian_Number_Plates/Sample_Images'
+detected_texts = analyze_dataset(dataset_path)
 
-# 🔮 Future Enhancements
-🎥 Real-time plate detection in video
+# Dataset link
+https://www.kaggle.com/datasets/dataclusterlabs/indian-number-plates-dataset
+  
+# ✅ Features
+Detects and extracts number plates from images.
 
-🎙️ Use real emotional speech datasets
+Uses OCR to get readable text.
 
-🌐 Deploy emotion model as web/mobile app
+Supports multiple formats and fonts.
 
-🧬 Multimodal input: voice + face + text
+Can be extended for real-time or video input.
 
-🧠 Advanced semantic and prosody analysis
+# ⚠️ Limitations
+May struggle with blurry or angled images.
 
-# 📘 Conclusion
-This project demonstrates a functional pipeline for detecting and recognizing vehicle number plates using OCR, and a prototype for detecting human emotion from speech using AI. While the number plate system is reasonably accurate and extendable, the emotion detection component is an early-stage mockup relying on synthetic data. With real datasets, real-time processing, and multimodal inputs, both systems can evolve into powerful tools for intelligent traffic systems and emotion-aware applications.
+Not optimized for real-time use.
+
+Only supports standard English characters.
+
+Doesn’t handle multiple plates per image effectively.
+
+# 🔮 Future Improvements
+Add real-time video support.
+
+Improve accuracy under poor lighting.
+
+Use advanced OCR or LLMs for context validation.
+
+Support for international number plate formats.
+
+# 🧾 Conclusion
+This project demonstrates a foundational pipeline for number plate detection using EasyOCR and OpenCV, capable of identifying and extracting plate numbers from images. While the system performs well under clean conditions, it has limitations in real-world scenarios such as motion blur or occlusions. The bonus emotion detection module serves as a proof of concept for multimodal AI integration. With future improvements and real-time capabilities, this project can evolve into a practical, intelligent traffic and surveillance tool.
+
